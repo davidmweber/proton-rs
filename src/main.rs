@@ -51,8 +51,8 @@ fn analyse(test: TestJigBase) {
     println!("Test jig {} test state: {}", test.jig_id, test.test_result);
     // Behold the power of pattern matching.
     match test.test_jig_type {
-        Some(TestJigType::AppTestCanWifi(_)) => println!("This is a can wifi test test"),
-        Some(TestJigType::AppTestCellPositions(_)) => println!("This is a cell position test"),
+        Some(TestJigType::AppTestCanWifi(c)) => println!("This is a can wifi test test of device {}", c.mac_address),
+        Some(TestJigType::AppTestCellPositions(c)) => println!("This is a cell position test of {}", c.cell_serial_number),
         None => println!("No test information present"),
     }
 }
